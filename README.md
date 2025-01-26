@@ -11,7 +11,7 @@
 
 
 ## Локальное развертывание проекта
-1. Клонируйте репозиторий [kitty-bot](git@github.com:syberflea/kitty_bot.git).
+1. Клонируйте репозиторий [catbot](git@github.com:syberflea/catbot.git).
 2. В каталоге с проектом создайте и активируйте виртуальное окружение: `python3 -m venv venv && source venv/bin/activate`
 3. Установите зависимости: `pip install -r requirements.txt`.  
 4. Запустите в консоли скрипт `python kittybot`
