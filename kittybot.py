@@ -39,7 +39,6 @@ def new_cat(update, context):
     context.bot.send_photo(chat.id, get_new_image())
 
 
-@app.route('/')
 def say_hi(update, context):
     # Получаем информацию о чате, из которого пришло сообщение,
     # и сохраняем в переменную chat
@@ -67,6 +66,7 @@ def wake_up(update, context):
     context.bot.send_photo(chat.id, get_new_image())
 
 
+@app.route('/')
 def main():
     '''
     Push the tempo
@@ -78,8 +78,7 @@ def main():
 
     updater.start_polling()
     updater.idle()
-    app.run(port=5000)
 
 
 if __name__ == '__main__':
-    main()
+    app.run()
