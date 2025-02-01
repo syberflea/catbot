@@ -4,12 +4,15 @@ import os
 
 import requests
 from dotenv import load_dotenv
+from flask import Flask
 from telegram import ReplyKeyboardMarkup
 from telegram.ext import CommandHandler, Updater
 
 load_dotenv()
 
 secret_token = os.getenv('BOT_TOKEN')
+
+app = Flask(__name__)
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -36,6 +39,7 @@ def new_cat(update, context):
     context.bot.send_photo(chat.id, get_new_image())
 
 
+@app.route('/')
 def say_hi(update, context):
     # Получаем информацию о чате, из которого пришло сообщение,
     # и сохраняем в переменную chat
@@ -74,6 +78,7 @@ def main():
 
     updater.start_polling()
     updater.idle()
+    app.run(port=5000)
 
 
 if __name__ == '__main__':
